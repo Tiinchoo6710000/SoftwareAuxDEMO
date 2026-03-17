@@ -117,6 +117,8 @@ C) The system will prompt you to select the detection mode:
 
 D) Next, you can draw a Region of Interest (ROI) directly on the video stream.
 
+*IF YOU SELECT PERSON DETECTION ON THE FLOOR, ONLY MARK THE FLOOR PERIMETER AS ROI
+
 Press **ENTER** to confirm the ROI.
 
 --
@@ -165,7 +167,7 @@ Detección de caídas mediante análisis de postura corporal mediante Yolo pose
 
 Monitorización de áreas restringidas mediante ROI (Región de Interés)
 
-Reconocimiento facial para la identificación de personal autorizado
+Reconocimiento facial para la identificación de personal autorizado 
 
 Sistema de activación de alertas en tiempo real
 
@@ -259,6 +261,7 @@ C) El sistema le pedirá que seleccione el modo de detección:
 2 - Área restringida
 
 D) A continuación, puede dibujar una Región de Interés (ROI) directamente en la transmisión de video.
+   *EN CASO DE SELECCIONAR DETECCION PERSONA EN EL SUELO MARCAR SOLAMENTE EL PERIMETRO DEL PISO COMO ROI
 
 Presione **ENTER** para confirmar la ROI.
 

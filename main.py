@@ -23,6 +23,9 @@ CONF_THRESHOLD = 0.5
 ROI_COVERAGE_THRESHOLD = 0.8
 STILL_ALERT_TIME = 3.0
 
+# 🔥 NUEVO (persistencia)
+ALERT_HOLD_TIME = 2.5
+
 
 latest_frame = None
 latest_detections = []
@@ -211,7 +214,9 @@ t1.start()
 t2.start()
 
 
+# 🔥 NUEVO
 alert_active = False
+last_alert_time = 0
 
 
 while True:
@@ -318,13 +323,17 @@ while True:
         cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
 
 
-    if alert and not alert_active:
+    # 🔥 LÓGICA NUEVA (persistencia)
+    current_time = time.time()
 
-        trigger_alert(detection_name)
+    if alert:
+        last_alert_time = current_time
 
-        alert_active = True
+        if not alert_active:
+            trigger_alert(detection_name)
+            alert_active = True
 
-    if not alert:
+    if current_time - last_alert_time > ALERT_HOLD_TIME:
         alert_active = False
 
 
@@ -332,7 +341,8 @@ while True:
         cv2.polylines(frame, [roi], True, (255, 0, 0), 2)
 
 
-    if alert:
+    # 🔥 CAMBIO CLAVE
+    if alert_active:
 
         cv2.rectangle(frame, (0, 0), (500, 50), (0, 0, 255), -1)
 
@@ -372,8 +382,8 @@ while True:
     cv2.putText(console, detection_name, (10, 260),
                 cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 1)
 
-    status = "ALERTA ACTIVADA" if alert else "MONITOREANDO"
-    color = (0, 0, 255) if alert else (0, 255, 0)
+    status = "ALERTA ACTIVADA" if alert_active else "MONITOREANDO"
+    color = (0, 0, 255) if alert_active else (0, 255, 0)
 
     cv2.putText(console, "Estado:", (10, 320),
                 cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 1)
