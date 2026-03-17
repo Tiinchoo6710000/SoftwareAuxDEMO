@@ -7,7 +7,7 @@ The demonstration showcases real-time video analysis capable of detecting critic
 
 • Person lying on the ground
 • Presence in restricted areas
-• Detection of unknown persons (facial recognition)
+• Detection of unknown persons (face recognition)
 
 This project represents the main detection engine of a broader system designed to assist healthcare personnel in hospitals, clinics, and nursing homes.
 
@@ -23,7 +23,7 @@ Fall detection using body posture analysis
 
 Restricted area monitoring using ROI (Region of Interest)
 
-Facial recognition for authorized personnel identification
+Face recognition for authorized personnel identification
 
 Real-time alert activation system
 
@@ -81,7 +81,7 @@ OpenCV
 YOLOv8 (Ultralytics)
 NumPy
 Torch
-Facial Recognition
+Face Recognition
 
 ## Computer Vision Techniques
 
@@ -249,7 +249,7 @@ git clone https://github.com/Tiinchoo6710000/SoftwareAuxDEMO
 pip install -r requirements.txt
 
 
-(Para subir rostros, se requieren un mínimo de 10 fotos del rostro desde diferentes ángulos y deben agregarse a la carpeta rostros_registrados. *NO OBLIGATORIO)
+(Para subir rostros, se requieren un mínimo de 10 fotos del rostro de diferentes ángulos y deben agregarse a la carpeta rostros_registrados. *NO OBLIGATORIO)
 
 A) Configure y coloque la cámara IP.
 
